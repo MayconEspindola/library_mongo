@@ -2,6 +2,8 @@
 
 namespace app\config;
 
+require_once __DIR__ . '/../../vendor/autoload.php';
+
 use MongoDB\Client;
 use MongoDB\BSON\ObjectId;
 
@@ -13,20 +15,23 @@ class Database
         $env = parse_ini_file($envpath);
 
         $uri = sprintf(
-            'mongodb://%s:%s@%s/%s',
+            'mongodb://%s:%s@%s:%s/%s',
             $env['username'],
             $env['password'],
             $env['host'],
+            $env['porta'],
             $env['database']
         );
 
         try {
             $client = new Client($uri);
             return $client->selectDatabase($env['database']);
-        } catch (\Exception $e) {
-            // Handle connection error
-            // die("Erro: " . $e->getMessage());
-            return null;
+        } catch (\MongoDB\Driver\Exception\ConnectionTimeoutException $e) {
+            die("Erro de conexão: Tempo de conexão expirado. Verifique as configurações do servidor MongoDB.");
+        } catch (\MongoDB\Driver\Exception\AuthenticationException $e) {
+            die("Erro de autenticação: As credenciais fornecidas são inválidas. Verifique o nome de usuário e a senha.");
+        } catch (\MongoDB\Driver\Exception\Exception $e) {
+            die("Erro ao conectar ao MongoDB: " . $e->getMessage());
         }
     }
 
@@ -43,9 +48,8 @@ class Database
         try {
             $result = $collection->find($filter);
             return $result;
-        } catch (\Exception $e) {
-            // Handle query error
-            return null;
+        } catch (\MongoDB\Driver\Exception\Exception $e) {
+            die("Erro na consulta: " . $e->getMessage());
         }
     }
 
@@ -62,9 +66,10 @@ class Database
         try {
             $collection->insertOne($document);
             return true;
-        } catch (\Exception $e) {
-            // Handle insert error
-            return false;
+        } catch (\MongoDB\Driver\Exception\BulkWriteException $e) {
+            die("Erro ao inserir documento: " . $e->getMessage());
+        } catch (\MongoDB\Driver\Exception\Exception $e) {
+            die("Erro ao inserir documento: " . $e->getMessage());
         }
     }
 
@@ -81,9 +86,8 @@ class Database
         try {
             $collection->deleteOne($filter);
             return true;
-        } catch (\Exception $e) {
-            // Handle delete error
-            return false;
+        } catch (\MongoDB\Driver\Exception\Exception $e) {
+            die("Erro ao excluir documento: " . $e->getMessage());
         }
     }
 
@@ -100,9 +104,8 @@ class Database
         try {
             $collection->updateOne($filter, $update);
             return true;
-        } catch (\Exception $e) {
-            // Handle update error
-            return false;
+        } catch (\MongoDB\Driver\Exception\Exception $e) {
+            die("Erro ao atualizar documento: " . $e->getMessage());
         }
     }
 }

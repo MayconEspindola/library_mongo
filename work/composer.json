@@ -18,6 +18,9 @@
             "name": "maycon"
         }
     ],
+    "require": {
+        "mongodb/mongodb": "^1.17.0"
+    },    
     "require-dev": {
         "phpunit/phpunit": "^10.4"
     }

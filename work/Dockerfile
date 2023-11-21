@@ -6,8 +6,11 @@ RUN apt-get update \
     && apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Install MongoDB PHP extension
-RUN pecl install mongodb \
+# Install PDO and MySQLi extensions
+RUN docker-php-ext-install pdo pdo_mysql mysqli
+
+# Install the MongoDB extension (use specific version, adjust as needed)
+RUN pecl install mongodb-1.11.0 \
     && docker-php-ext-enable mongodb
 
 # Install Composer

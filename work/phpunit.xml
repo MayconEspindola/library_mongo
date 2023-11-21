@@ -8,6 +8,6 @@
   <testsuites>
     <testsuite name="tests">
       <directory>tests</directory>
-    </testsuite>s
+    </testsuite>
   </testsuites>
 </phpunit>
