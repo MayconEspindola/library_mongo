@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca - Vanguard</title>
+
+    <link rel="stylesheet" type="text/css" href="../style/style_livros.css">
+    
+    <script>
+        function controlarOpcoesInsercao() {
+            var termoInput = document.getElementById('termo');
+            var tipoPesquisaSelect = document.getElementById('tipoPesquisa');
+
+            if (termoInput.value.trim() !== '') {
+                // Se algo for escrito, desabilita o campo de seleção
+                tipoPesquisaSelect.disabled = true;
+            } else {
+                // Se o campo estiver vazio, habilita o campo de seleção
+                tipoPesquisaSelect.disabled = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Buscar Livro</h2>
+
+    <form action="../process_forms/ReadBook.php" method="post">
+        <label for="termo">Termo de Busca:</label>
+        <input type="text" id="termo" name="termo" required oninput="controlarOpcoesInsercao()"><br>
+
+        <label for="tipoPesquisa">Tipo de Pesquisa:</label>
+        <select id="tipoPesquisa" name="tipoPesquisa" required>
+            <option value="titulo">Título</option>
+            <option value="autor">Autor</option>
+            <option value="ano">Ano de Publicação</option>
+        </select><br>
+
+        <input type="submit" value="Buscar Livro">
+    </form>
+</body>
+</html>

@@ -15,7 +15,7 @@ class Database
         $env = parse_ini_file($envpath);
 
         $uri = sprintf(
-            'mongodb://%s:%s@%s:%s/%s',
+            'mongodb://%s:%s@%s:%s',
             $env['username'],
             $env['password'],
             $env['host'],
