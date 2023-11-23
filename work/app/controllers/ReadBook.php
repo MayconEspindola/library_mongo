@@ -37,6 +37,8 @@ function buscarLivro($termo, $tipoPesquisa, \app\config\EnvironmentSettings $env
     }
 }
 
+// ...
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $envSettings = new \app\config\EnvironmentSettings();
@@ -49,9 +51,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Exibir as informações do livro encontrado (pode ser redirecionado para uma página específica)
         echo "<h3>Informações do Livro:</h3>";
-        echo "<p>Título: " . $livroEncontrado['titulo'] . "</p>";
-        echo "<p>Autor: " . $livroEncontrado['autor'] . "</p>";
-        echo "<p>Ano de Publicação: " . $livroEncontrado['ano'] . "</p>";
+
+        // Verifica se é um cursor e itera sobre os resultados
+        if ($livroEncontrado instanceof \MongoDB\Driver\Cursor) {
+            foreach ($livroEncontrado as $livro) {
+                echo "<p>Título: " . $livro->titulo . "</p>";
+                echo "<p>Autor: " . $livro->autor . "</p>";
+                echo "<p>Ano de Publicação: " . $livro->ano . "</p>";
+            }
+        } else {
+            // Se não for um cursor, exibe as informações diretamente
+            echo "<p>Título: " . $livroEncontrado['titulo'] . "</p>";
+            echo "<p>Autor: " . $livroEncontrado['autor'] . "</p>";
+            echo "<p>Ano de Publicação: " . $livroEncontrado['ano'] . "</p>";
+        }
 
     } catch (\Exception $e) {
         echo $e->getMessage();

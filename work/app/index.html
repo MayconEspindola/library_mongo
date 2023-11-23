@@ -7,14 +7,19 @@
 
     <link rel="stylesheet" type="text/css" href="style/style_livros.css">
     
+    <script>
+        function redirectToPage(page) {
+            window.location.href = 'view/' + page + '.html';
+        }
+    </script>
 </head>
 <body>
     <h2>Livros</h2>
     <form>
-        <label>Adicionar Livro <a href="view/formAddBook.html">+</a></label><br>
-        <label>Retirar Livro <a href="view/formDelBook.html">+</a></label>
-        <label>Alterar Livro <a href="view/formUptadeBook.html">+</a></label>
-        <label>Visualizar Livro <a href="view/formReadBook.html">+</a></label>
+        <label>Adicionar Livro <button type="button" onclick="redirectToPage('formAddBook')">+</button></label><br>
+        <label>Retirar Livro <button type="button" onclick="redirectToPage('formDelBook')">+</button></label>
+        <label>Alterar Livro <button type="button" onclick="redirectToPage('formUptadeBook')">+</button></label>
+        <label>Visualizar Livro <button type="button" onclick="redirectToPage('formReadBook')">+</button></label>
     </form>
 </body>
 </html>
