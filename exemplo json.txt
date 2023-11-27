@@ -88,8 +88,61 @@ Usuarios
         "tipo": "Tipo de Contribuição",
         "titulo": "Título da Contribuição",
         "data_contribuicao": "YYYY-MM-DD",
-        "status": "Status da Contribuição"
+        "status": "Status da Contribuição",
+        "pontos": 00
+      },
+      // Contribuições Expandidas
+      {
+        "id_contribuicao": 1,
+        "tipo": "livro",
+        "titulo": "Nome do Livro",
+        "autor": "Nome do Autor",
+        "ano_publicacao": 2022,
+        "editora": "Nome da Editora",
+        "pontos": 00
+      },
+      {
+        "id_contribuicao": 2,
+        "tipo": "missao",
+        "nome_missao": "Nome da Missão",
+        "localizacao": "Localização da Missão",
+        "data_inicio": "2023-01-01",
+        "data_conclusao": "2023-12-31",
+        "pontos": 00
+      },
+      {
+        "id_contribuicao": 3,
+        "tipo": "projeto",
+        "nome_projeto": "Nome do Projeto",
+        "descricao": "Descrição do Projeto",
+        "responsavel": "Nome do Responsável",
+        "status": "Em andamento",
+        "data_inicio": "2023-01-01",
+        "data_conclusao_prevista": "2023-12-31",
+        "pontos": 00
+      },
+      {
+        "id_contribuicao": 4,
+        "tipo": "contribuicao_livre",
+        "descricao": "Descrição da Contribuição Livre",
+        "data": "2023-06-15",
+        "pontos": 00
+      },
+      {
+        "id_contribuicao": 5,
+        "tipo": "contribuicao_especial",
+        "descricao": "Descrição da Contribuição Especial",
+        "data": "2023-09-20",
+        "pontos": 00
+      },
+      {
+        "id_contribuicao": 6,
+        "tipo": "demerito",
+        "motivo": "Motivo do Demérito",
+        "data": "2023-08-10",
+        "pontos": 00
       }
+      // Outras contribuições...
     ],
     "historico_emprestimos": [
       {
@@ -108,41 +161,4 @@ Usuarios
       "ultima_atividade": "YYYY-MM-DD"
     }
   }
-}
-
-
-//contribuicoes
-
-
-{
-  "contribuicoes": [
-    {
-      "tipo": "livro",
-      "titulo": "Nome do Livro",
-      "autor": "Nome do Autor",
-      "ano_publicacao": 2022,
-      "editora": "Nome da Editora"
-    },
-    {
-      "tipo": "missao",
-      "nome_missao": "Nome da Missão",
-      "localizacao": "Localização da Missão",
-      "data_inicio": "2023-01-01",
-      "data_conclusao": "2023-12-31"
-    },
-    {
-      "tipo": "projeto",
-      "nome_projeto": "Nome do Projeto",
-      "descricao": "Descrição do Projeto",
-      "responsavel": "Nome do Responsável",
-      "status": "Em andamento",
-      "data_inicio": "2023-01-01",
-      "data_conclusao_prevista": "2023-12-31"
-    },
-    {
-      "tipo": "contribuicao_livre",
-      "descricao": "Descrição da Contribuição Livre",
-      "data": "2023-06-15"
-    }
-  ]
 }
