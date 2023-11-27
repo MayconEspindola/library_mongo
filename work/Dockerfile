@@ -1,5 +1,5 @@
-# Use php:8.0-apache as the base image
-FROM php:8.0-apache
+# Use php:8.1-apache as the base image
+FROM php:8.1-apache
 
 # Update packages and install required dependencies
 RUN apt-get update \
@@ -10,11 +10,17 @@ RUN apt-get update \
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 # Install the MongoDB extension (use specific version, adjust as needed)
-RUN pecl install mongodb-1.11.0 \
+RUN pecl install mongodb-1.17.0 \
     && docker-php-ext-enable mongodb
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install PHPUnit
+RUN composer global require phpunit/phpunit
+
+# Add Composer's global bin directory to the system PATH
+ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
 # Set working directory
 WORKDIR /var/www

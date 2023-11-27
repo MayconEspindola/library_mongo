@@ -1,0 +1,148 @@
+Biblioteca
+
+{
+  "biblioteca": {
+    "nome": "Nome da Biblioteca",
+    "localizacao": "Cidade, Estado, País",
+    "local_armazenamento": "Nome ou descrição do local de armazenamento",
+    "estoque": {
+      "quantidade_total": 0,
+      "quantidade_disponivel": 0,
+      "quantidade_emprestada": 0
+    },
+    "catalogo": [
+      {
+        "titulo": "Título do Livro",
+        "autores": ["Autor 1", "Autor 2"],
+        "idioma": "Idioma do Livro",
+        "genero": "Gênero Literário",
+        "isbn": "Número ISBN",
+        "ano_publicacao": 20XX,
+        "editora": "Nome da Editora",
+        "local_publicacao": "Local de Publicação",
+        "numero_edicao": 1,
+        "quantidade_exemplares": 0,
+        "estoque_atual": 0,
+        "secao": "Seção da Biblioteca",
+        "estante": "Número da Estante",
+        "prateleira": "Número da Prateleira",
+        "formato": "Formato do Livro (e.g., físico, digital)",
+        "palavras_chave": ["Palavra-chave 1", "Palavra-chave 2"],
+        "resumo": "Breve resumo do conteúdo do livro",
+        "tags": ["Tag1", "Tag2"],
+        "classificacao_dewey": "Número de Classificação Dewey",
+        "status_emprestimo": "Disponível/Indisponível/Empréstimo",
+        "data_aquisicao": "Data de Aquisição do Livro",
+        "ultima_atualizacao": "Data da Última Atualização no Catálogo",
+        "historico_emprestimos": [
+          {
+            "id_emprestimo": 0,
+            "data_emprestimo": "YYYY-MM-DD",
+            "data_devolucao_prevista": "YYYY-MM-DD",
+            "data_devolucao_efetiva": null,
+            "status": "Em andamento",
+            "usuario": {
+              "id": 0,
+              "nome": "Nome do Usuário",
+              "email": "usuario@email.com"
+            }
+          }
+          // Outros empréstimos...
+        ]
+      }
+      // Outros livros...
+    ],
+    "sistema_online": {
+      "url": "https://sua-biblioteca-online.com",
+      "api_version": "1.0",
+      "ultima_atualizacao": "YYYY-MM-DD"
+    }
+  }
+}
+
+Usuarios
+
+{
+  "usuario": {
+    "id": 0,
+    "nome": "Nome do Usuário",
+    "cargo": "Cargo do Usuário",
+    "estacao": "Estação do Usuário",
+    "progresso": {
+      "nivel": 1,
+      "pontuacao": 0,
+      "conquistas": []
+    },
+    "acervo_emprestado": [
+      {
+        "id_emprestimo": 0,
+        "titulo": "Título do Livro",
+        "data_emprestimo": "YYYY-MM-DD",
+        "data_devolucao_prevista": "YYYY-MM-DD",
+        "status": "Status do Empréstimo"
+      }
+    ],
+    "contribuicoes": [
+      {
+        "id_contribuicao": 0,
+        "tipo": "Tipo de Contribuição",
+        "titulo": "Título da Contribuição",
+        "data_contribuicao": "YYYY-MM-DD",
+        "status": "Status da Contribuição"
+      }
+    ],
+    "historico_emprestimos": [
+      {
+        "id_emprestimo": 0,
+        "titulo": "Título do Livro",
+        "data_emprestimo": "YYYY-MM-DD",
+        "data_devolucao_efetiva": "YYYY-MM-DD",
+        "status": "Status do Empréstimo"
+      }
+    ],
+    "informacoes_adicionais": {
+      "email": "email@example.com",
+      "telefone": "Número de Telefone",
+      "endereco": "Endereço do Usuário",
+      "data_nascimento": "YYYY-MM-DD",
+      "ultima_atividade": "YYYY-MM-DD"
+    }
+  }
+}
+
+
+//contribuicoes
+
+
+{
+  "contribuicoes": [
+    {
+      "tipo": "livro",
+      "titulo": "Nome do Livro",
+      "autor": "Nome do Autor",
+      "ano_publicacao": 2022,
+      "editora": "Nome da Editora"
+    },
+    {
+      "tipo": "missao",
+      "nome_missao": "Nome da Missão",
+      "localizacao": "Localização da Missão",
+      "data_inicio": "2023-01-01",
+      "data_conclusao": "2023-12-31"
+    },
+    {
+      "tipo": "projeto",
+      "nome_projeto": "Nome do Projeto",
+      "descricao": "Descrição do Projeto",
+      "responsavel": "Nome do Responsável",
+      "status": "Em andamento",
+      "data_inicio": "2023-01-01",
+      "data_conclusao_prevista": "2023-12-31"
+    },
+    {
+      "tipo": "contribuicao_livre",
+      "descricao": "Descrição da Contribuição Livre",
+      "data": "2023-06-15"
+    }
+  ]
+}

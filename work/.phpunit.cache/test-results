@@ -1,1 +1,0 @@
-{"version":1,"defects":{"DatabaseTest::test_if_thesre_is_a_connection":8},"times":{"DatabaseTest::test_if_thesre_is_a_connection":0.01,"DatabaseTest::test_if_thesre_is_a_result_not_null":0.012}}
